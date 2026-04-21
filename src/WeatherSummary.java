@@ -22,10 +22,30 @@ public class WeatherSummary {
         // Hint: use Scanner. nextDouble() and hasNextDouble() will be helpful here!
         Scanner temps = new Scanner(System.in);
 
+        /*
+        // prints out the temps for past 30 days
         while (temps.hasNextDouble()) {
             double temp = temps.nextDouble();
             System.out.println(temp);
         }
+        temps.close();
+        */
+
+        double firstTemp = temps.nextDouble();
+        double max = firstTemp;
+        double min = firstTemp;
+
+        while (temps.hasNextDouble()) {
+            double temp = temps.nextDouble();
+            if (temp > max) {
+                max = temp;
+            }
+            if (temp < min) {
+                min = temp;
+            }
+        }
+        System.out.println("Max: " + max);
+        System.out.println("Min: " + min);
         temps.close();
     }
 }
