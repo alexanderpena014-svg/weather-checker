@@ -34,6 +34,8 @@ public class WeatherSummary {
         double firstTemp = temps.nextDouble();
         double max = firstTemp;
         double min = firstTemp;
+        double sum = firstTemp;
+        int count = 1;
 
         while (temps.hasNextDouble()) {
             double temp = temps.nextDouble();
@@ -43,9 +45,16 @@ public class WeatherSummary {
             if (temp < min) {
                 min = temp;
             }
+
+            sum += temp;
+            count++;
         }
+
+        double average = sum / count;
+
         System.out.println("Max: " + max);
         System.out.println("Min: " + min);
+        System.out.println("Average: " + average);
         temps.close();
     }
 }
